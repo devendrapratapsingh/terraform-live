@@ -24,7 +24,7 @@ terraform {
 # AWS Provider - Terraform Cloud handles authentication via OIDC
 # Explicitly set region to match TFC_AWS_RUN_REGION
 provider "aws" {
-  region = "eu-west-1"  # Must match TFC_AWS_RUN_REGION variable
+  region = var.aws_region  # Must match TFC_AWS_RUN_REGION variable
   # Credentials are provided automatically by Terraform Cloud via OIDC
 }
 
