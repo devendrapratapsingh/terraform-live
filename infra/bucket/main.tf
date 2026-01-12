@@ -21,11 +21,11 @@ terraform {
   }
 }
 
-# AWS Provider - Let Terraform Cloud handle authentication via OIDC
-# The region comes from TFC_AWS_RUN_REGION variable
+# AWS Provider - Terraform Cloud handles authentication via OIDC
+# Explicitly set region to match TFC_AWS_RUN_REGION
 provider "aws" {
-  # No explicit credentials needed - Terraform Cloud provides them via OIDC
-  # Region is set via TFC_AWS_RUN_REGION workspace variable (eu-west-1)
+  region = "eu-west-1"  # Must match TFC_AWS_RUN_REGION variable
+  # Credentials are provided automatically by Terraform Cloud via OIDC
 }
 
 # Using the official AWS S3 bucket module from public Terraform Registry
